@@ -13,6 +13,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
+    // Paths.
+    paths: {
+      base: '.',
+      styles: 'app/assets/stylesheets'
+    },
     banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
       '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
@@ -64,7 +69,26 @@ module.exports = function(grunt) {
     qunit: {
       files: ['test/**/*.html']
     },
+    sass: {
+      dist: {
+        src: '<%= paths.styles %>/main.scss',
+        dest: '<%= paths.styles %>/master.css'
+      }
+    },
+    cssmin: {
+      files: [{
+        expand: true,
+        cwd: '<%= paths.styles %>/',
+        src: [ 'master.css' ],
+        dest: '<%= paths.styles %>',
+        ext: '.min.css'
+      }]
+    },
     watch: {
+      dev: {
+        files: '<%= paths.styles %>/**/*.{scss,sass}',
+        tasks: ['sass']
+      },
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
@@ -82,10 +106,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // grunt task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat']);
-  grunt.registerTask('prod', ['jshint', 'qunit', 'concat', 'uglify']);
-  grunt.registerTask('develop', ['jshint', 'qunit', 'concat', 'uglify', 'watch' ]);
+  grunt.registerTask('default', ['jshint:gruntfile', 'sass']);
+  grunt.registerTask('develop', ['jshint:gruntfile', 'sass', 'watch:dev' ]);
+  grunt.registerTask('prod', ['jshint', 'qunit', 'concat', 'uglify', 'sass', 'cssmin']);
 
 };

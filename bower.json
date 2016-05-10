@@ -28,8 +28,7 @@
   "devDependencies": {},
   "dependencies": {
     "angular": "~1.5.5",
-    "bootstrap": "~3.3.6",
-    "jquery": "~2.2.3",
+    "bootstrap-sass": "~3.3.6",
     "normalize-scss": "^3.0.2"
   }
 }
