@@ -5,7 +5,7 @@
 ### Sass ###
 .sass-cache/
 *.css.map
-
+*.css
 
 ### Node ###
 # Logs
