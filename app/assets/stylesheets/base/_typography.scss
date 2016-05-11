@@ -1,0 +1,202 @@
+/*
+* heading tags
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-medium;
+  line-height: $line-height;
+  text-rendering: optimizelegibility;
+}
+h1 {
+  margin: 0;
+}
+h2,
+h3 {
+  margin: $margin-base / $double-octave 0 $margin-base / $major-twelfth;
+}
+h4,
+h5,
+h6 {
+  margin: $margin-base / $major-twelfth / $octave 0 $margin-base / $major-tenth / $octave;
+}
+h1 {
+  font-size: $font-size-h1;
+}
+h2 {
+  font-size: $font-size-h2;
+}
+h3 {
+  font-size: $font-size-h3;
+}
+h4 {
+  font-size: $font-size-h4;
+}
+h5 {
+  font-size: $font-size-h5;
+}
+h6 {
+  font-size: $font-size-h6;
+}
+
+/*
+* paragraph tags
+*/
+p {
+  margin: $margin-base 0;
+}
+
+/*
+* link tags
+*/
+a {
+  color: $color-link;
+  font-size: $font-size-base;
+  text-decoration: none;
+  &:hover {
+    border-bottom: $color-success;
+    color: $color-link;
+    text-decoration: none;
+  }
+  &:active,
+  &:focus {
+    color: $color-link-active !important;
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+/*
+* list tags
+*/
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+dl {
+  margin-bottom: $margin-base / $octave;
+  dt {
+    font-weight: $font-weight-medium;
+    margin-top: $margin-base / $octave;
+  }
+  dd {
+    margin: 0;
+  }
+}
+
+b,
+strong,
+em,
+small,
+code {
+  line-height: 1;
+}
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+i {
+  font-style: italic;
+}
+small {
+  font-size: $font-size-small;
+}
+sup,
+sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -$margin-base / $octave;
+}
+sub {
+  top: $margin-base / $octave;
+}
+hr {
+  border: 0 none;
+  border-top: $border-base;
+  clear: both;
+  height: 1px;
+  margin: $margin-base 0;
+  min-height: 0;
+  &.dotted {
+    border-style: dotted;
+  }
+  &.dashed {
+    border-style: dashed;
+  }
+  &.darkborder {
+    border-color: darken($border-color, 50%);
+  }
+  &.lightborder {
+    border-color: lighten($border-color, 50%);
+  }
+}
+
+label {
+  font-weight: $font-weight-normal;
+  &.success {
+    color: $color-success;
+  }
+  &.error {
+    color: $color-error;
+  }
+  &.warning {
+    color: $color-warning;
+  }
+  &.info {
+    color: $color-info;
+  }
+}
+blockquote {
+  border-left: 2px solid $border-color;
+  color: lighten($color-text-default, 15);
+  margin: $margin-base 0;
+  padding-left: $padding-base / $octave;
+}
+cite {
+  color: lighten($color-text-default, 25);
+  font-style: italic;
+  &:before {
+    content: "\2014 \00a0";
+  }
+}
+
+textarea {
+  appearance: none;
+  border: $border-lighter;
+  border-radius: 0;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  height: $line-height * 3.5em;
+  outline: none;
+  padding: $padding-base;
+  resize: none;
+  width: $full-page;
+  -webkit-appearance: none;
+  &:focus {
+    border-color: $black;
+    & + .textarea-placeholder {
+      border-color: $black;
+    }
+  }
+}
+
+select {
+  background: $white;
+  border: $border-lighter;
+  margin: 0;
+  outline: none;
+  padding: $padding-base / $octave;
+  width: $full-page;
+  option {
+    color: $black;
+  }
+  &:focus {
+    border-color: $color-gray-dark;
+  }
+}

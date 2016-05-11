@@ -1,0 +1,92 @@
+// ----------------------------------------------
+// SCALING RATIO
+// ----------------------------------------------
+$minor-second: 1.067;
+$major-second: 1.17;
+$minor-third: 1.2;
+$major-third: 1.25;
+$perfect-fourth: 1.333;
+$augmented-fourth: 1.414;
+$perfect-fifth: 1.5;
+$minor-sixth: 1.6;
+$major-sixth: 1.667;
+$minor-seventh: 1.778;
+$major-seventh: 1.875;
+$octave: 2;
+$major-eighth: 2.25;
+$major-tenth: 2.5;
+$major-eleventh: 2.667;
+$major-twelfth: 3;
+$double-octave: 4;
+// ----------------------------------------------
+// COLOR
+// ----------------------------------------------
+//base
+$white: #fff;
+$black: #000;
+$color-gray: #6b6969;
+$color-gray-light: #a7a7a7;
+$color-gray-lighter: #ebebeb;
+$color-gray-dark: #555454;
+$color-gray-darker: #272727;
+//message text color
+$color-success: #5cb85c;
+$color-error: #ff0000;
+$color-warning: #f0ad4e;
+$color-info: #5bc0de;
+// text color
+$color-text-default: $black;
+// links
+$color-link: $color-info;
+$color-link-active: darken($color-info, 10%);
+
+// ----------------------------------------------
+// TYPOGRAPHY
+// ----------------------------------------------
+// fonts
+$font-family-base: "helvetica";
+// font sizes
+$em-base: 12px;
+$font-size-base: $em-base;
+$font-size-larger: $font-size-base * 1.5;
+$font-size-large: $font-size-base * 1.25;
+$font-size-medium: $font-size-base * 0.875;
+$font-size-small: $font-size-base * 0.7;
+$font-size-tiny: $font-size-base * 0.56;
+$font-size-h1: $font-size-base * 2.9;
+$font-size-h2: $font-size-base * 2.3;
+$font-size-h3: $font-size-base * 2;
+$font-size-h4: $font-size-larger;
+$font-size-h5: $font-size-large;
+$font-size-h6: $font-size-base;
+// line heights
+$line-height: 1.6;
+//letter spacing
+$letter-spacing-base: 0;
+// font weight
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+// font family
+$font-family-body: $font-family-base;
+$font-family-heading: $font-family-base;
+// ----------------------------------------------
+// INTERFACE AND LAYOUT
+// ----------------------------------------------
+$spacing-base: $line-height * 0.5em;
+$padding-base: $spacing-base;
+$margin-base: $spacing-base;
+$border-color: $color-gray;
+$border-width-base: 1px;
+$border-width-thick: $border-width-base * 4;
+$border-base: $border-width-base solid $border-color;
+$border-light: $border-width-base solid $white;
+$border-lighter: $border-width-base solid $color-gray-light;
+$border-dark: $border-width-base solid $color-gray-dark;
+$border-darker: $border-width-base solid $color-gray-darker;
+// ----------------------------------------------
+// DIMENSIONS FOR PANEL
+// ----------------------------------------------
+$application-max-width: 1200px;
+$application-min-width: 600px;
+$full-page: 100%;
