@@ -55,17 +55,11 @@ p {
 */
 a {
   color: $color-link;
-  font-size: $font-size-base;
   text-decoration: none;
-  &:hover {
-    border-bottom: $color-success;
-    color: $color-link;
-    text-decoration: none;
-  }
   &:active,
-  &:focus {
-    color: $color-link-active !important;
-    outline: none;
+  &:focus,
+  &:hover {
+    border-bottom: $border-width-base * $octave solid $color-success;
     text-decoration: none;
   }
 }
@@ -90,6 +84,9 @@ dl {
   }
 }
 
+/*
+Miscellaneous
+*/
 b,
 strong,
 em,
@@ -136,7 +133,6 @@ hr {
     border-color: lighten($border-color, 50%);
   }
 }
-
 label {
   font-weight: $font-weight-normal;
   &.success {
@@ -163,40 +159,5 @@ cite {
   font-style: italic;
   &:before {
     content: "\2014 \00a0";
-  }
-}
-
-textarea {
-  appearance: none;
-  border: $border-lighter;
-  border-radius: 0;
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  height: $line-height * 3.5em;
-  outline: none;
-  padding: $padding-base;
-  resize: none;
-  width: $full-page;
-  -webkit-appearance: none;
-  &:focus {
-    border-color: $black;
-    & + .textarea-placeholder {
-      border-color: $black;
-    }
-  }
-}
-
-select {
-  background: $white;
-  border: $border-lighter;
-  margin: 0;
-  outline: none;
-  padding: $padding-base / $octave;
-  width: $full-page;
-  option {
-    color: $black;
-  }
-  &:focus {
-    border-color: $color-gray-dark;
   }
 }
