@@ -33,8 +33,8 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['<%= paths.angular %>/**/*.js'],
-        dest: '<%= paths.build %>/angular.js'
+        src: ['<%= paths.angular %>/**/*.js', '<%= paths.scripts %>/*.js'],
+        dest: '<%= paths.build %>/main.js'
       }
     },
     uglify: {
@@ -42,8 +42,8 @@ module.exports = function(grunt) {
         banner: '<%= banner %>'
       },
       dist: {
-        src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
+        src: ['<%= paths.build %>/main.js'],
+        dest: '<%= paths.build %>/main.min.js'
       }
     },
     jshint: {
@@ -65,8 +65,8 @@ module.exports = function(grunt) {
       gruntfile: {
         src: 'Gruntfile.js'
       },
-      lib_test: {
-        src: ['lib/**/*.js', 'test/**/*.js']
+      js: {
+        src: ['<%= paths.scripts %>/*.js']
       }
     },
     qunit: {
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: '<%= paths.angular %>/**/*.js',
-        tasks: ['concat']
+        tasks: ['concat', 'uglify']
       }
     }
   });
@@ -113,8 +113,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
 
   // grunt task.
-  grunt.registerTask('default', ['jshint:gruntfile', 'sass']);
-  grunt.registerTask('develop', ['jshint:gruntfile', 'sass', 'concat', 'watch' ]);
-  grunt.registerTask('prod', ['jshint', 'qunit', 'concat', 'uglify', 'sass', 'cssmin']);
-
+  grunt.registerTask('default', ['jshint', 'sass']);
+  grunt.registerTask('develop', ['jshint', 'sass', 'concat', 'uglify', 'watch' ]);
+  grunt.registerTask('prod', ['qunit', 'jshint', 'sass', 'cssmin', 'concat', 'uglify']);
 };
