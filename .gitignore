@@ -2,10 +2,15 @@
 # Create .gitignore via command "touch .gitignore"
 # and generate content by https://www.gitignore.io/
 
+### Grunt generated files ###
+build/
+
+
 ### Sass ###
 .sass-cache/
 *.css.map
 *.css
+
 
 ### Node ###
 # Logs

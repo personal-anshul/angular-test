@@ -1,4 +1,11 @@
-/* Normalize.scss */
-@import "../../../bower_components/normalize-scss/normalize";
 /* Bootstrap SASS */
 @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+/* Normalize.scss */
+@import "../../../bower_components/normalize-scss/normalize";
+/* Reset.scss */
+@import "../../../bower_components/reset-scss/reset";
+/* Custom scss */
+@import "base/config";
+@import "base/scaffold";
+@import "base/typography";
+@import "component/core";
