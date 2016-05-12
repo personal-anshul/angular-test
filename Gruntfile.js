@@ -16,7 +16,10 @@ module.exports = function(grunt) {
     // Paths.
     paths: {
       base: '.',
-      styles: 'app/assets/stylesheets'
+      build: 'build',
+      styles: 'app/assets/stylesheets',
+      scripts: 'app/javascripts',
+      angular: 'app/javascripts/angular'
     },
     banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
@@ -30,8 +33,8 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['lib/<%= pkg.name %>.js'],
-        dest: 'dist/<%= pkg.name %>.js'
+        src: ['<%= paths.angular %>/**/*.js'],
+        dest: '<%= paths.build %>/angular.js'
       }
     },
     uglify: {
@@ -85,7 +88,7 @@ module.exports = function(grunt) {
       }]
     },
     watch: {
-      dev: {
+      sass: {
         files: '<%= paths.styles %>/**/*.{scss,sass}',
         tasks: ['sass']
       },
@@ -93,9 +96,9 @@ module.exports = function(grunt) {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
       },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
+      js: {
+        files: '<%= paths.angular %>/**/*.js',
+        tasks: ['concat']
       }
     }
   });
@@ -111,7 +114,7 @@ module.exports = function(grunt) {
 
   // grunt task.
   grunt.registerTask('default', ['jshint:gruntfile', 'sass']);
-  grunt.registerTask('develop', ['jshint:gruntfile', 'sass', 'watch:dev' ]);
+  grunt.registerTask('develop', ['jshint:gruntfile', 'sass', 'concat', 'watch' ]);
   grunt.registerTask('prod', ['jshint', 'qunit', 'concat', 'uglify', 'sass', 'cssmin']);
 
 };
