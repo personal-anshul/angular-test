@@ -18,8 +18,7 @@ module.exports = function(grunt) {
       base: '.',
       build: 'build',
       styles: 'app/assets/stylesheets',
-      scripts: 'app/javascripts',
-      angular: 'app/javascripts/angular'
+      scripts: 'app/assets/javascripts'
     },
     banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
@@ -33,7 +32,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['<%= paths.angular %>/**/*.js', '<%= paths.scripts %>/*.js'],
+        src: ['<%= paths.scripts %>/**/*.js'],
         dest: '<%= paths.build %>/main.js'
       }
     },
@@ -66,35 +65,37 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
       js: {
-        src: ['<%= paths.scripts %>/*.js']
+        src: ['<%= paths.scripts %>/script.js']
       }
     },
-    qunit: {
-      files: ['test/**/*.html']
+    karma: {
+      options: {
+        banner: '<%= banner %>'
+      },
+      unit: {
+        configFile: 'test/karma.conf.js'
+      }
     },
     sass: {
       dist: {
         src: '<%= paths.styles %>/main.scss',
-        dest: '<%= paths.styles %>/master.css'
+        dest: '<%= paths.build %>/main.css'
       }
     },
     cssmin: {
-      files: [{
-        expand: true,
-        cwd: '<%= paths.styles %>/',
-        src: [ 'master.css' ],
-        dest: '<%= paths.styles %>',
-        ext: '.min.css'
-      }]
+      dist: {
+        src: '<%= paths.build %>/main.css',
+        dest: '<%= paths.build %>/main.min.css'
+      }
     },
     watch: {
       sass: {
         files: '<%= paths.styles %>/**/*.{scss,sass}',
-        tasks: ['sass']
+        tasks: ['sass', 'cssmin']
       },
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
+        tasks: ['default']
       },
       js: {
         files: '<%= paths.scripts %>/**/*.js',
@@ -106,14 +107,15 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-karma');
 
   // grunt task.
-  grunt.registerTask('default', ['jshint', 'sass']);
-  grunt.registerTask('develop', ['jshint', 'sass', 'concat', 'uglify', 'watch' ]);
-  grunt.registerTask('prod', ['qunit', 'jshint', 'sass', 'cssmin', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'sass', 'cssmin', 'concat', 'uglify']);
+  grunt.registerTask('build', ['jshint', 'sass', 'cssmin', 'concat', 'uglify', 'watch' ]);
+  grunt.registerTask('prod', ['sass', 'cssmin', 'concat', 'uglify']);
+  grunt.registerTask('karma', ['karma']);
 };
