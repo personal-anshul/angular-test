@@ -18,8 +18,7 @@ module.exports = function(grunt) {
       base: '.',
       build: 'build',
       styles: 'app/assets/stylesheets',
-      scripts: 'app/assets/javascripts',
-      angular: 'app/assets/javascripts/angular'
+      scripts: 'app/assets/javascripts'
     },
     banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
@@ -33,7 +32,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['<%= paths.angular %>/**/*.js', '<%= paths.scripts %>/*.js'],
+        src: ['<%= paths.scripts %>/**/*.js'],
         dest: '<%= paths.build %>/main.js'
       }
     },
