@@ -1,0 +1,11 @@
+.location-placeholder {
+  margin-top: $margin-base * $octave;
+}
+.carousel {
+  position: static;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  margin: auto;
+  width: $full-page / $perfect-fifth;
+}
