@@ -80,8 +80,8 @@ $border-color: $color-gray;
 $border-width-base: 1px;
 $border-width-thick: $border-width-base * 4;
 $border-base: $border-width-base solid $border-color;
-$border-light: $border-width-base solid $white;
-$border-lighter: $border-width-base solid $color-gray-light;
+$border-light: $border-width-base solid $color-gray-light;
+$border-lighter: $border-width-base solid $white;
 $border-dark: $border-width-base solid $color-gray-dark;
 $border-darker: $border-width-base solid $color-gray-darker;
 // ----------------------------------------------

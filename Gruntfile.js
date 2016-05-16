@@ -99,7 +99,7 @@ module.exports = function(grunt) {
         tasks: ['default']
       },
       js: {
-        files: '<%= paths.angular %>/**/*.js',
+        files: '<%= paths.scripts %>/**/*.js',
         tasks: ['concat', 'uglify']
       }
     }
