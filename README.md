@@ -8,7 +8,7 @@ Run following commands -
 * npm install
 * bower install
 * bundle install
-* grunt develop
+* grunt build
 
 ## Run Application
 Run following command - node server.js
