@@ -8,8 +8,6 @@ build/
 
 ### Sass ###
 .sass-cache/
-*.css.map
-*.css
 
 
 ### Node ###
@@ -53,7 +51,8 @@ jspm_packages
 
 
 ### Bower ###
-bower_components
+bower_components/
+app/components/
 .bower-cache
 .bower-registry
 .bower-tmp
