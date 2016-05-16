@@ -2,19 +2,21 @@ html,
 body {
   background: $color-gray-lighter;
   color: $color-text-default;
-  margin: 0;
+  margin: $margin-base / $double-octave auto 0;
+  max-width: $application-max-width;
+  min-width: $application-min-width;
   padding: 0;
   position: relative;
   -webkit-text-size-adjust: $full-page;
   -ms-text-size-adjust: $full-page;
 }
 body {
+  border: $border-dark;
   font-family: $font-family-body;
   font-size: $font-size-base;
   line-height: $line-height;
   letter-spacing: $letter-spacing-base;
-  min-width: $application-min-width;
-  max-width: $application-max-width;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0 !important;
   -webkit-font-smoothing: antialiased;
 }
