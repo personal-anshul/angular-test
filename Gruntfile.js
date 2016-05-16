@@ -117,5 +117,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'sass', 'cssmin', 'concat', 'uglify']);
   grunt.registerTask('build', ['jshint', 'sass', 'cssmin', 'concat', 'uglify', 'watch' ]);
   grunt.registerTask('prod', ['sass', 'cssmin', 'concat', 'uglify']);
-  grunt.registerTask('karma', ['karma']);
+  grunt.registerTask('test', ['karma']);
 };
