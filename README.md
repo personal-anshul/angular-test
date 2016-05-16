@@ -8,7 +8,8 @@ Run following commands -
 * npm install
 * bower install
 * bundle install
-* grunt build
+* grunt build (to build all script and style code)
+* grunt test (to run karma tool to execute all unit tests)
 
 ## Run Application
 Run following command - node server.js
