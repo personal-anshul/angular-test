@@ -73,7 +73,7 @@ module.exports = function(grunt) {
         banner: '<%= banner %>'
       },
       unit: {
-        configFile: 'test/karma.conf.js'
+        configFile: 'karma.conf.js'
       }
     },
     sass: {
