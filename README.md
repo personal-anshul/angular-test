@@ -1,7 +1,7 @@
 #Fusion App
 
 ## Purpose of Application -
-Test your angularJS, HTML5, SASS, bootstrap and CSS3 skills
+Testing angularJS app with Jasmine
 
 ## Initial Setup
 Run following commands -
